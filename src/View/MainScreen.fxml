@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="MainScreen" maxHeight="480.0" maxWidth="949.0" minHeight="480.0" minWidth="949.0" prefHeight="480.0" prefWidth="949.0" style="-fx-background-color: ADD8e6;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <MenuBar fx:id="mainMenuBar" prefHeight="32.0" prefWidth="950.0" AnchorPane.bottomAnchor="448.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem fx:id="menuExitItem" mnemonicParsing="false" onAction="#exitProgram" text="Exit" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <Label fx:id="mainTitleLabel" layoutX="14.0" layoutY="45.0" text="Inventory Management System" textFill="#250404">
+            <font>
+                <Font name="Lucida Console" size="20.0" />
+            </font>
+        </Label>
+        <Button layoutX="850.0" layoutY="440.0" mnemonicParsing="false" onMouseClicked="#exitProgramButton" prefHeight="30.0" prefWidth="75.0" text="Exit">
+         <font>
+            <Font name="Lucida Console" size="14.0" />
+         </font></Button>
+        <AnchorPane id="outterPartsBoxMain" layoutX="14.0" layoutY="126.0" prefHeight="300.0" prefWidth="455.0" style="-fx-border-radius: 5; -fx-border-color: gray;">
+            <children>
+                <Label id="partsLabelMain" style="-fx-label-padding: 10;" text="Parts">
+                    <font>
+                        <Font name="Lucida Console" size="18.0" />
+                    </font>
+                </Label>
+                <TextField id="partsSearchFieldMain" fx:id="partSearchBox" layoutX="176.0" layoutY="20.0" onMouseClicked="#clearText" prefHeight="22.0" prefWidth="182.0" style="-fx-padding: 2; -fx-border-color: gray;">
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font></TextField>
+                <Button fx:id="addPartButton" layoutX="200.0" layoutY="253.0" mnemonicParsing="false" onMouseClicked="#addPart" prefHeight="30.0" prefWidth="75.0" style="-fx-padding: 10;" text="Add">
+               <font>
+                  <Font name="Lucida Console" size="14.0" />
+               </font></Button>
+                <Button layoutX="286.0" layoutY="253.0" mnemonicParsing="false" onMouseClicked="#modifyPart" prefHeight="30.0" prefWidth="75.0" style="-fx-padding: 10;" text="Modify">
+               <font>
+                  <Font name="Lucida Console" size="14.0" />
+               </font></Button>
+                <Button layoutX="370.0" layoutY="253.0" mnemonicParsing="false" onMouseClicked="#deletePart" prefHeight="30.0" prefWidth="75.0" style="-fx-padding: 10;" text="Delete">
+               <font>
+                  <Font name="Lucida Console" size="14.0" />
+               </font></Button>
+                <TableView fx:id="partsTable" layoutX="10.0" layoutY="58.0" prefHeight="185.0" prefWidth="435.0">
+
+                    <items>
+
+                    </items>
+                    <columns>
+                        <TableColumn fx:id="partIDColumn" prefWidth="93.0" text="Part ID">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="partID" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="partNameColumn" prefWidth="118.0" text="Part Name">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="Name" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="partCountColumn" prefWidth="106.0" style="text-align: justify;" text="Inventory Level">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="InStock" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+                <Button layoutX="373.0" layoutY="18.0" mnemonicParsing="false" onMouseClicked="#searchForPart" prefHeight="30.0" prefWidth="75.0" text="Search">
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font></Button>
+            </children>
+        </AnchorPane>
+        <AnchorPane id="outterPRoductsBoxMain" layoutX="481.0" layoutY="125.0" prefHeight="300.0" prefWidth="455.0" style="-fx-border-radius: 5; -fx-border-color: gray;">
+            <children>
+                <Label id="productsLabelMain" style="-fx-label-padding: 10;" text="Products">
+                    <font>
+                        <Font name="Lucida Console" size="18.0" />
+                    </font>
+                </Label>
+                <TextField id="partsSearchFieldMain" fx:id="productSearchBox" layoutX="176.0" layoutY="20.0" onMouseClicked="#clearText" prefHeight="22.0" prefWidth="182.0" style="-fx-padding: 2; -fx-border-color: gray;">
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font></TextField>
+                <Button layoutX="370.0" layoutY="253.0" mnemonicParsing="false" onMouseClicked="#deleteProduct" prefHeight="30.0" prefWidth="75.0" style="-fx-padding: 10;" text="Delete">
+               <font>
+                  <Font name="Lucida Console" size="14.0" />
+               </font></Button>
+                <Button layoutX="285.0" layoutY="253.0" mnemonicParsing="false" onMouseClicked="#modifyProduct" prefHeight="30.0" prefWidth="75.0" style="-fx-padding: 10;" text="Modify">
+               <font>
+                  <Font name="Lucida Console" size="14.0" />
+               </font></Button>
+                <Button fx:id="addProductButton" layoutX="200.0" layoutY="253.0" mnemonicParsing="false" onMouseClicked="#addProduct" prefHeight="30.0" prefWidth="75.0" style="-fx-padding: 10;" text="Add">
+               <font>
+                  <Font name="Lucida Console" size="14.0" />
+               </font></Button>
+                <TableView fx:id="productsTable" layoutX="10.0" layoutY="58.0" prefHeight="185.0" prefWidth="435.0">
+                    <columns>
+                        <TableColumn fx:id="productIDColumn" prefWidth="93.0" text="Product ID">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="ProductID" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="productNameColumn" prefWidth="118.0" text="Product Name">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="Name" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="productCountColumn" prefWidth="106.0" style="text-align: justify;" text="Inventory Level">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="InStock" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+                <Button layoutX="373.0" layoutY="18.0" mnemonicParsing="false" onMouseClicked="#searchForProduct" prefHeight="30.0" prefWidth="75.0" text="Search">
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font></Button>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="949.0" style="-fx-background-color: ADD8e6;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <AnchorPane layoutX="13.0" layoutY="13.0" prefHeight="455.0" prefWidth="923.0" style="-fx-border-color: gray; -fx-border-radius: 10;">
+            <children>
+                <Label layoutX="14.0" layoutY="14.0" text="Modify Product">
+                    <font>
+                        <Font name="Lucida Console" size="28.0" />
+                    </font>
+                </Label>
+                <Label layoutX="129.0" layoutY="131.0" text="ID">
+                    <font>
+                        <Font name="Lucida Console" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="115.0" layoutY="181.0" text="Name">
+                    <font>
+                        <Font name="Lucida Console" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="126.0" layoutY="231.0" text="Inv">
+                    <font>
+                        <Font name="Lucida Console" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="119.0" layoutY="281.0" text="Price">
+                    <font>
+                        <Font name="Lucida Console" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="121.0" layoutY="331.0" text="Maximum">
+                    <font>
+                        <Font name="Lucida Console" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="300.0" layoutY="331.0" text="Minimum">
+                    <font>
+                        <Font name="Lucida Console" size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="id" editable="false" layoutX="210.0" layoutY="120.0" prefHeight="30.0" prefWidth="180.0">
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font></TextField>
+                <TextField fx:id="name" layoutX="210.0" layoutY="170.0" onMouseClicked="#clearTextField" prefHeight="30.0" prefWidth="180.0" text="Product Name">
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font></TextField>
+                <TextField fx:id="count" layoutX="210.0" layoutY="220.0" onMouseClicked="#clearTextField" prefHeight="30.0" prefWidth="180.0" text="Inventory Level">
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font></TextField>
+                <TextField fx:id="price" layoutX="210.0" layoutY="270.0" onMouseClicked="#clearTextField" prefHeight="30.0" prefWidth="180.0" text="Product Price">
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font></TextField>
+                <TextField fx:id="max" layoutX="210.0" layoutY="320.0" onMouseClicked="#clearTextField" prefHeight="30.0" prefWidth="75.0" text="Max">
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font></TextField>
+                <TextField fx:id="min" layoutX="380.0" layoutY="320.0" onMouseClicked="#clearTextField" prefHeight="30.0" prefWidth="75.0" text="Min">
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font></TextField>
+                <Button fx:id="modifyProductSearchButton" layoutX="830.0" layoutY="18.0" mnemonicParsing="false" onMouseClicked="#modifyProductSearch" prefHeight="30.0" prefWidth="75.0" text="Search">
+                    <font>
+                        <Font name="Lucida Console" size="14.0" />
+                    </font>
+                </Button>
+                <TextField fx:id="search" layoutX="650.0" layoutY="20.0" onMouseClicked="#clearTextField" prefHeight="25.0" prefWidth="170.0">
+               <font>
+                  <Font name="Lucida Console" size="12.0" />
+               </font></TextField>
+                <TableView fx:id="partSearchTable" layoutX="480.0" layoutY="66.0" prefHeight="150.0" prefWidth="426.0">
+                    <columns>
+                        <TableColumn fx:id="partIDColumn" minWidth="-Infinity" prefWidth="104.0" text="Part ID">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="PartID" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="partNameColumn" prefWidth="112.0" text="Part Name">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="Name" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="partCountColumn" prefWidth="98.0" text="Inventory Level">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="InStock" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+                <Button fx:id="modifyProductAddButton" layoutX="830.0" layoutY="222.0" mnemonicParsing="false" onMouseClicked="#addPart" prefHeight="30.0" prefWidth="75.0" text="Add">
+                    <font>
+                        <Font name="Lucida Console" size="14.0" />
+                    </font>
+                </Button>
+                <Button fx:id="modifyProductDeleteButton" layoutX="750.0" layoutY="415.0" mnemonicParsing="false" onMouseClicked="#deletePart" prefHeight="30.0" prefWidth="75.0" text="Delete">
+                    <font>
+                        <Font name="Lucida Console" size="14.0" />
+                    </font>
+                </Button>
+                <Button fx:id="modifyProductCancelButton" layoutX="830.0" layoutY="415.0" mnemonicParsing="false" onMouseClicked="#cancelModify" prefHeight="30.0" prefWidth="75.0" text="Cancel">
+               <font>
+                  <Font name="Lucida Console" size="14.0" />
+               </font></Button>
+                <TableView fx:id="assocPartsTable" layoutX="480.0" layoutY="256.0" prefHeight="150.0" prefWidth="426.0">
+                    <columns>
+                        <TableColumn fx:id="assocPartIDColumn" minWidth="-Infinity" prefWidth="104.0" text="Part ID">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="PartID" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="assocPartNameColumn" prefWidth="112.0" text="Part Name">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="Name" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="assocPartCountColumn" prefWidth="98.0" text="Inventory Level">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="InStock" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+                <Button fx:id="modifyProductSaveButton" layoutX="669.0" layoutY="415.0" mnemonicParsing="false" onMouseClicked="#saveProduct" prefHeight="30.0" prefWidth="75.0" text="Save">
+                    <font>
+                        <Font name="Lucida Console" size="14.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
